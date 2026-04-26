@@ -5,6 +5,9 @@ const reviewTrack = document.querySelector(".review-track");
 const prevReview = document.querySelector(".prev");
 const nextReview = document.querySelector(".next");
 const productModalButtons = document.querySelectorAll("[data-product-modal-open]");
+const languageSwitchers = document.querySelectorAll("[data-language-switcher]");
+const languageTriggers = document.querySelectorAll("[data-language-trigger]");
+const languageMenus = document.querySelectorAll("[data-language-menu]");
 const languageButtons = document.querySelectorAll("[data-lang]");
 const defaultLanguage = "en";
 const translations = {
@@ -17,6 +20,7 @@ const translations = {
     "aria.nextReview": "Next review",
     "aria.contactInfo": "Contact information",
     "aria.closeProduct": "Close product information",
+    "aria.language": "Change language",
     "nav.home": "Home",
     "nav.products": "Products",
     "nav.story": "Our Story",
@@ -80,6 +84,7 @@ const translations = {
     "aria.nextReview": "Vlerësimi tjetër",
     "aria.contactInfo": "Informacion kontakti",
     "aria.closeProduct": "Mbyll informacionin e produktit",
+    "aria.language": "Ndrysho gjuhën",
     "nav.home": "Kryefaqja",
     "nav.products": "Produktet",
     "nav.story": "Historia jonë",
@@ -143,6 +148,7 @@ const translations = {
     "aria.nextReview": "Следна рецензија",
     "aria.contactInfo": "Контакт информации",
     "aria.closeProduct": "Затвори информации за производот",
+    "aria.language": "Промени јазик",
     "nav.home": "Почетна",
     "nav.products": "Производи",
     "nav.story": "Нашата приказна",
@@ -258,12 +264,40 @@ function applyLanguage(language, shouldSave = true) {
 
   languageButtons.forEach((button) => {
     const isActive = button.dataset.lang === language;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
+    button.hidden = isActive;
   });
+
+  closeLanguageMenu();
 
   if (shouldSave) {
     saveLanguage(language);
+  }
+}
+
+function openLanguageMenu(switcher) {
+  if (!switcher) return;
+
+  closeLanguageMenu();
+  switcher.classList.add("is-open");
+  switcher.querySelector("[data-language-trigger]")?.setAttribute("aria-expanded", "true");
+}
+
+function closeLanguageMenu(targetSwitcher) {
+  const switchers = targetSwitcher ? [targetSwitcher] : languageSwitchers;
+
+  switchers.forEach((switcher) => {
+    switcher.classList.remove("is-open");
+    switcher.querySelector("[data-language-trigger]")?.setAttribute("aria-expanded", "false");
+  });
+}
+
+function toggleLanguageMenu(switcher) {
+  if (!switcher) return;
+
+  if (switcher.classList.contains("is-open")) {
+    closeLanguageMenu(switcher);
+  } else {
+    openLanguageMenu(switcher);
   }
 }
 
@@ -286,8 +320,35 @@ if (menuToggle && navLinks) {
   });
 }
 
+languageTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleLanguageMenu(trigger.closest("[data-language-switcher]"));
+  });
+});
+
+languageMenus.forEach((menu) => {
+  menu.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+});
+
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+});
+
+document.addEventListener("click", (event) => {
+  const clickedInsideLanguageSwitcher = Array.from(languageSwitchers).some((switcher) => switcher.contains(event.target));
+
+  if (!clickedInsideLanguageSwitcher) {
+    closeLanguageMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLanguageMenu();
+  }
 });
 
 revealItems.forEach((item, index) => {

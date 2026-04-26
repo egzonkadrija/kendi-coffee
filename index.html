@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=35" />
+    <link rel="stylesheet" href="styles.css?v=46" />
   </head>
   <body>
     <div class="site-shell">
@@ -16,6 +16,22 @@
         <a href="#" class="brand" aria-label="KENDI CAFFE home">
           <img src="assets/logowide.png" alt="KENDI CAFFE" />
         </a>
+
+        <div class="language-switcher language-switcher-mobile" data-language-switcher>
+          <button class="language-trigger" type="button" aria-label="Change language" aria-expanded="false" data-language-trigger data-i18n-aria="aria.language">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21"></path>
+              <path d="M12 3c-2.4 2.5-3.6 5.5-3.6 9s1.2 6.5 3.6 9"></path>
+            </svg>
+          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-option" type="button" data-lang="en">English</button>
+            <button class="language-option" type="button" data-lang="sq">Albanian</button>
+            <button class="language-option" type="button" data-lang="mk">Macedonian</button>
+          </div>
+        </div>
 
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-i18n-aria="aria.openMenu">
           <span></span>
@@ -29,13 +45,22 @@
           <a href="#story" data-i18n="nav.story">Our Story</a>
           <a href="#contact" data-i18n="nav.contact">Contact</a>
           <a class="mobile-call" href="tel:070666179" data-i18n="nav.call">Call 070 666 179</a>
+          <div class="language-switcher language-switcher-desktop" data-language-switcher>
+            <button class="language-trigger" type="button" aria-label="Change language" aria-expanded="false" data-language-trigger data-i18n-aria="aria.language">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21"></path>
+                <path d="M12 3c-2.4 2.5-3.6 5.5-3.6 9s1.2 6.5 3.6 9"></path>
+              </svg>
+            </button>
+            <div class="language-menu" data-language-menu>
+              <button class="language-option" type="button" data-lang="en">English</button>
+              <button class="language-option" type="button" data-lang="sq">Albanian</button>
+              <button class="language-option" type="button" data-lang="mk">Macedonian</button>
+            </div>
+          </div>
         </nav>
-
-        <div class="language-switcher" aria-label="Language selector">
-          <button class="language-btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
-          <button class="language-btn" type="button" data-lang="sq" aria-pressed="false">AL</button>
-          <button class="language-btn" type="button" data-lang="mk" aria-pressed="false">MK</button>
-        </div>
 
         <a class="nav-cta" href="tel:070666179" aria-label="Call 070 666 179" data-i18n-aria="aria.call">
           <span data-i18n="nav.cta">CONTACT</span>
@@ -340,6 +365,6 @@
       </div>
     </dialog>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=9"></script>
   </body>
 </html>
