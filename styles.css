@@ -851,19 +851,6 @@ h1 span {
   overflow: hidden;
 }
 
-.story::before {
-  content: "";
-  position: absolute;
-  right: clamp(-120px, -7vw, -52px);
-  bottom: clamp(-105px, -8vw, -58px);
-  z-index: 0;
-  width: clamp(230px, 31vw, 390px);
-  aspect-ratio: 1;
-  background: url("assets/story-portafilter.svg") center / contain no-repeat;
-  opacity: 0.11;
-  pointer-events: none;
-}
-
 .story-intro,
 .story-copy {
   position: relative;
@@ -1921,13 +1908,6 @@ h1 span {
   .story {
     gap: 22px;
     padding-top: 30px;
-  }
-
-  .story::before {
-    right: -98px;
-    bottom: -72px;
-    width: 230px;
-    opacity: 0.09;
   }
 
   .story-block h3 {
