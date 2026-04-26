@@ -4,6 +4,7 @@
   --nav-outer-inline: max(36px, calc((100vw - var(--container)) / 2));
   --nav-pad-inline: 46px;
   --content-inline: calc(var(--nav-outer-inline) + var(--nav-pad-inline));
+  --section-width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
   --gutter: clamp(18px, 4vw, 48px);
   --navy: #0f4072;
   --navy-2: #0f4072;
@@ -542,8 +543,60 @@ h1 span {
   background: conic-gradient(var(--orange) 0 22%, #fff 22% 28%, var(--red) 28% 55%, #fff 55% 61%, var(--navy) 61% 100%);
 }
 
+.craft-video-section {
+  width: var(--section-width);
+  margin: var(--section-space) auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 560px);
+  gap: clamp(32px, 6vw, 82px);
+  align-items: center;
+}
+
+.craft-video-copy {
+  max-width: 520px;
+}
+
+.craft-video-copy .eyebrow {
+  margin-bottom: 18px;
+}
+
+.craft-video-copy h2 {
+  margin: 0 0 22px;
+  color: var(--navy);
+  font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 0.96;
+}
+
+.craft-video-copy p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.craft-video-copy p:not(.eyebrow) + p {
+  margin-top: 14px;
+}
+
+.craft-video-media {
+  justify-self: end;
+  width: min(100%, 560px);
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 28px 68px rgba(47, 28, 14, 0.18);
+}
+
+.craft-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .featured {
-  width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
+  width: var(--section-width);
   margin: var(--section-space) auto 0;
   padding: 0;
   display: grid;
@@ -821,7 +874,7 @@ h1 span {
 }
 
 .benefits {
-  width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
+  width: var(--section-width);
   margin: var(--section-space-tight) auto 0;
   padding: clamp(28px, 4vw, 42px) 0 0;
   display: grid;
@@ -875,10 +928,10 @@ h1 span {
 }
 
 .banner {
-  width: 100%;
+  width: var(--section-width);
   min-height: 150px;
-  margin: var(--section-space) 0 0;
-  padding-inline: var(--content-inline);
+  margin: var(--section-space) auto 0;
+  padding-inline: clamp(24px, 4vw, 46px);
   position: relative;
   display: grid;
   grid-template-columns: 1fr 285px 1fr;
@@ -954,7 +1007,7 @@ h1 span {
 
 .story,
 .reviews {
-  width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
+  width: var(--section-width);
   margin: var(--section-space) auto 0;
 }
 
@@ -1134,7 +1187,7 @@ h1 span {
 .footer-main {
   position: relative;
   z-index: 1;
-  width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
+  width: var(--section-width);
   margin: 0 auto;
   padding: clamp(46px, 6vw, 72px) 0;
   display: grid;
@@ -1332,11 +1385,16 @@ h1 span {
   .story,
   .reviews,
   .footer-main {
-    width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
+    width: var(--section-width);
   }
 
   .featured {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .craft-video-section {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 500px);
+    gap: clamp(28px, 4vw, 56px);
   }
 
   .section-intro {
@@ -1571,6 +1629,19 @@ h1 span {
     width: min(470px, 108%);
   }
 
+  .craft-video-section {
+    grid-template-columns: 1fr;
+  }
+
+  .craft-video-copy {
+    min-height: 0;
+  }
+
+  .craft-video-media {
+    justify-self: center;
+    width: min(520px, 100%);
+  }
+
   .featured {
     grid-template-columns: 1fr;
   }
@@ -1671,8 +1742,8 @@ h1 span {
   .story,
   .reviews,
   .footer-main {
-    width: min(var(--section), calc(100% - var(--content-inline) - var(--content-inline)));
-    max-width: calc(100% - var(--content-inline) - var(--content-inline));
+    width: var(--section-width);
+    max-width: var(--section-width);
   }
 
   .nav-wrap {
@@ -2066,7 +2137,7 @@ h1 span {
 
   .banner {
     min-height: 96px;
-    padding: 14px var(--content-inline);
+    padding: 14px clamp(14px, 4vw, 20px);
   }
 
   .banner p {

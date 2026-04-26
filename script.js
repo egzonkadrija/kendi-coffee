@@ -5,6 +5,8 @@ const reviewTrack = document.querySelector(".review-track");
 const prevReview = document.querySelector(".prev");
 const nextReview = document.querySelector(".next");
 const productModalButtons = document.querySelectorAll("[data-product-modal-open]");
+const craftVideoSection = document.querySelector(".craft-video-section");
+const craftVideo = document.querySelector(".craft-video");
 const languageSwitchers = document.querySelectorAll("[data-language-switcher]");
 const languageTriggers = document.querySelectorAll("[data-language-trigger]");
 const languageMenus = document.querySelectorAll("[data-language-menu]");
@@ -32,6 +34,10 @@ const translations = {
     "hero.text": "KENDI CAFFE brings together premium beans and modern craftsmanship to deliver a smooth, rich and perfectly balanced coffee experience.",
     "hero.productsButton": "Explore Products",
     "hero.storyButton": "Discover Our Story",
+    "craft.eyebrow": "Coffee craft",
+    "craft.title": "Every Coffee,<br />Made Better",
+    "craft.textOne": "From the first pour to the final sip, every detail is shaped to bring out a richer coffee moment. KENDI CAFFE blends modern energy with Italian espresso tradition, creating a taste that feels smooth, bold, and unforgettable.",
+    "craft.textTwo": "With KENDI CAFFE, every coffee you make, from a bold espresso to a creamy specialty drink, carries the same rich aroma, balanced flavor, and unmistakable character.",
     "products.eyebrow": "Featured products",
     "products.title": "Our Signature<br />Selections",
     "products.text": "Carefully crafted blends for a modern coffee experience.",
@@ -96,6 +102,10 @@ const translations = {
     "hero.text": "KENDI CAFFE bashkon kokrra premium dhe mjeshtëri moderne për të sjellë një përvojë kafeje të butë, të pasur dhe të balancuar në mënyrë perfekte.",
     "hero.productsButton": "Eksploro produktet",
     "hero.storyButton": "Zbulo historinë tonë",
+    "craft.eyebrow": "Mjeshtëri kafeje",
+    "craft.title": "Çdo kafe,<br />më e mirë",
+    "craft.textOne": "Nga derdhja e parë deri te gllënjka e fundit, çdo detaj formësohet për të sjellë një moment kafeje më të pasur. KENDI CAFFE bashkon energjinë moderne me traditën italiane të espressos, duke krijuar një shije të butë, të fortë dhe të paharrueshme.",
+    "craft.textTwo": "Me KENDI CAFFE, çdo kafe që përgatitni, nga një espresso e fuqishme deri te një pije kremoze speciale, mban të njëjtën aromë të pasur, shije të balancuar dhe karakter të dallueshëm.",
     "products.eyebrow": "Produkte të veçuara",
     "products.title": "Përzgjedhjet<br />tona speciale",
     "products.text": "Përzierje të krijuara me kujdes për një përvojë moderne kafeje.",
@@ -160,6 +170,10 @@ const translations = {
     "hero.text": "KENDI CAFFE ги спојува премиум зрната и модерната изработка за да испорача мазно, богато и совршено балансирано кафе искуство.",
     "hero.productsButton": "Истражи производи",
     "hero.storyButton": "Откриј ја нашата приказна",
+    "craft.eyebrow": "Кафе изработка",
+    "craft.title": "Секое кафе,<br />подобро направено",
+    "craft.textOne": "Од првото точење до последната голтка, секој детал е обликуван за побогат кафе момент. KENDI CAFFE ја спојува модерната енергија со италијанската еспресо традиција, создавајќи вкус што е мазен, силен и незаборавен.",
+    "craft.textTwo": "Со KENDI CAFFE, секое кафе што го подготвувате, од силно еспресо до кремаст специјален пијалак, ја носи истата богата арома, балансиран вкус и препознатлив карактер.",
     "products.eyebrow": "Избрани производи",
     "products.title": "Наши<br />специјални избори",
     "products.text": "Внимателно создадени мешавини за модерно кафе искуство.",
@@ -374,6 +388,25 @@ if ("IntersectionObserver" in window) {
   }, 900);
 } else {
   revealItems.forEach((item) => item.classList.add("in-view"));
+}
+
+if (craftVideoSection && craftVideo && "IntersectionObserver" in window) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          craftVideo.play().catch(() => {});
+        } else {
+          craftVideo.pause();
+        }
+      });
+    },
+    { threshold: 0.36 }
+  );
+
+  videoObserver.observe(craftVideoSection);
+} else if (craftVideo) {
+  craftVideo.pause();
 }
 
 function scrollReviews(direction) {
