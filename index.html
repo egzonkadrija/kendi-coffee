@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=34" />
+    <link rel="stylesheet" href="styles.css?v=35" />
   </head>
   <body>
     <div class="site-shell">
@@ -17,22 +17,28 @@
           <img src="assets/logowide.png" alt="KENDI CAFFE" />
         </a>
 
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-i18n-aria="aria.openMenu">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
         <nav class="nav-links">
-          <a class="active" href="#home">Home</a>
-          <a href="#products">Products</a>
-          <a href="#story">Our Story</a>
-          <a href="#contact">Contact</a>
-          <a class="mobile-call" href="tel:070666179">Call 070 666 179</a>
+          <a class="active" href="#home" data-i18n="nav.home">Home</a>
+          <a href="#products" data-i18n="nav.products">Products</a>
+          <a href="#story" data-i18n="nav.story">Our Story</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+          <a class="mobile-call" href="tel:070666179" data-i18n="nav.call">Call 070 666 179</a>
         </nav>
 
-        <a class="nav-cta" href="tel:070666179" aria-label="Call 070 666 179">
-          <span>CONTACT</span>
+        <div class="language-switcher" aria-label="Language selector">
+          <button class="language-btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button class="language-btn" type="button" data-lang="sq" aria-pressed="false">AL</button>
+          <button class="language-btn" type="button" data-lang="mk" aria-pressed="false">MK</button>
+        </div>
+
+        <a class="nav-cta" href="tel:070666179" aria-label="Call 070 666 179" data-i18n-aria="aria.call">
+          <span data-i18n="nav.cta">CONTACT</span>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"></path>
           </svg>
@@ -43,22 +49,22 @@
         <section class="hero" id="home">
           <div class="pattern pattern-left" aria-hidden="true"></div>
           <div class="hero-copy reveal">
-            <p class="eyebrow"><span></span> Italian soul. Modern craft.</p>
-            <h1>Modern Coffee,<br /><span>Italian Soul.</span></h1>
-            <p class="hero-text">
+            <p class="eyebrow" data-i18n="hero.eyebrow"><span></span> Italian soul. Modern craft.</p>
+            <h1 data-i18n-html="hero.title">Modern Coffee,<br /><span>Italian Soul.</span></h1>
+            <p class="hero-text" data-i18n="hero.text">
               KENDI CAFFE brings together premium beans and modern craftsmanship
               to deliver a smooth, rich and perfectly balanced coffee experience.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#products">
-                Explore Products
+                <span data-i18n="hero.productsButton">Explore Products</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14"></path>
                   <path d="m13 6 6 6-6 6"></path>
                 </svg>
               </a>
               <a class="btn btn-outline" href="#story">
-                Discover Our Story
+                <span data-i18n="hero.storyButton">Discover Our Story</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M9 7v10l8-5-8-5Z"></path>
                 </svg>
@@ -74,14 +80,14 @@
 
         <section class="featured" id="products">
           <div class="section-intro reveal">
-            <p class="eyebrow"><span></span> Featured products</p>
-            <h2>Our Signature<br />Selections</h2>
-            <p>Carefully crafted blends for a modern coffee experience.</p>
+            <p class="eyebrow" data-i18n="products.eyebrow"><span></span> Featured products</p>
+            <h2 data-i18n-html="products.title">Our Signature<br />Selections</h2>
+            <p data-i18n="products.text">Carefully crafted blends for a modern coffee experience.</p>
           </div>
 
           <article class="product-card reveal">
             <div class="card-top">
-              <span class="pill red">Best Seller</span>
+              <span class="pill red" data-i18n="products.bestSeller">Best Seller</span>
             </div>
             <div class="product-visual">
               <div class="product-frame bag-frame">
@@ -90,31 +96,31 @@
             </div>
             <div class="product-meta">
               <div>
-                <h3>MODERNO Coffee Beans</h3>
-                <p>Premium blend • Rich & Balanced</p>
-                <button class="product-info-btn" type="button" data-product-modal-open="beans-modal">Details</button>
+                <h3 data-i18n="products.beansName">MODERNO Coffee Beans</h3>
+                <p data-i18n="products.beansDesc">Premium blend • Rich & Balanced</p>
+                <button class="product-info-btn" type="button" data-product-modal-open="beans-modal" data-i18n="products.details">Details</button>
               </div>
               <div class="product-buy">
-                <span>1kg</span>
+                <span data-i18n="products.beansSize">1kg</span>
               </div>
             </div>
           </article>
 
           <article class="product-card reveal">
             <div class="card-top">
-              <span class="pill blue">New</span>
+              <span class="pill blue" data-i18n="products.new">New</span>
             </div>
             <div class="product-visual">
               <img class="product-image pod-two" src="assets/pod2.png" alt="MODERNO coffee pods" />
             </div>
             <div class="product-meta">
               <div>
-                <h3>MODERNO Pods</h3>
-                <p>Single Serve • Smooth & Aromatic</p>
-                <button class="product-info-btn" type="button" data-product-modal-open="pods-modal">Details</button>
+                <h3 data-i18n="products.podsName">MODERNO Pods</h3>
+                <p data-i18n="products.podsDesc">Single Serve • Smooth & Aromatic</p>
+                <button class="product-info-btn" type="button" data-product-modal-open="pods-modal" data-i18n="products.details">Details</button>
               </div>
               <div class="product-buy">
-                <span>100 pcs</span>
+                <span data-i18n="products.podsSize">100 pcs</span>
               </div>
             </div>
           </article>
@@ -126,13 +132,13 @@
               <path d="M5 10h11v5a5 5 0 0 1-5 5H8a3 3 0 0 1-3-3v-7Z"></path>
               <path d="M16 11h3a2.5 2.5 0 0 1 0 5H16"></path>
             </svg>
-            <p>Modern Taste.<br />Timeless Pleasure.</p>
+            <p data-i18n-html="banner.left">Modern Taste.<br />Timeless Pleasure.</p>
           </div>
           <div class="banner-cup">
             <img src="assets/banner-cup-kendi.png" alt="KENDI CAFFE espresso cup and saucer" />
           </div>
           <div class="banner-right">
-            <p>Crafted for those<br />who appreciate<br />quality in every cup.</p>
+            <p data-i18n-html="banner.right">Crafted for those<br />who appreciate<br />quality in every cup.</p>
           </div>
         </section>
 
@@ -145,8 +151,8 @@
               </svg>
             </span>
             <div>
-              <h3>Premium Blend</h3>
-              <p>Carefully selected beans for superior quality.</p>
+              <h3 data-i18n="benefits.premiumTitle">Premium Blend</h3>
+              <p data-i18n="benefits.premiumText">Carefully selected beans for superior quality.</p>
             </div>
           </div>
           <div class="benefit reveal">
@@ -156,8 +162,8 @@
               </svg>
             </span>
             <div>
-              <h3>Fresh Roast</h3>
-              <p>Roasted to perfection for maximum freshness.</p>
+              <h3 data-i18n="benefits.roastTitle">Fresh Roast</h3>
+              <p data-i18n="benefits.roastText">Roasted to perfection for maximum freshness.</p>
             </div>
           </div>
           <div class="benefit reveal">
@@ -170,8 +176,8 @@
               </svg>
             </span>
             <div>
-              <h3>Rich Aroma</h3>
-              <p>Full-bodied flavor with irresistible aroma.</p>
+              <h3 data-i18n="benefits.aromaTitle">Rich Aroma</h3>
+              <p data-i18n="benefits.aromaText">Full-bodied flavor with irresistible aroma.</p>
             </div>
           </div>
           <div class="benefit reveal">
@@ -184,16 +190,16 @@
               </svg>
             </span>
             <div>
-              <h3>Easy Brewing</h3>
-              <p>Designed for modern lifestyles, anywhere.</p>
+              <h3 data-i18n="benefits.brewingTitle">Easy Brewing</h3>
+              <p data-i18n="benefits.brewingText">Designed for modern lifestyles, anywhere.</p>
             </div>
           </div>
         </section>
 
         <section class="story" id="story">
           <div class="story-intro reveal">
-            <p class="eyebrow"><span></span> Our story</p>
-            <h2>
+            <p class="eyebrow" data-i18n="story.eyebrow"><span></span> Our story</p>
+            <h2 data-i18n-html="story.title">
               <span>Family</span>
               <span>tradition,</span>
               <span>Italian espresso</span>
@@ -203,8 +209,8 @@
 
           <div class="story-copy">
             <article class="story-block reveal">
-              <h3>Love for Italian espresso</h3>
-              <p>
+              <h3 data-i18n="story.blockTitle">Love for Italian espresso</h3>
+              <p data-i18n="story.blockText">
                 Quality is the basis of our company philosophy, consolidated by
                 years of hard work and accumulated experience. Quality, sought
                 after and obtained at every level of the production process:
@@ -217,37 +223,37 @@
         </section>
 
         <section class="reviews" aria-label="Customer reviews">
-          <h2>Loved by Coffee Enthusiasts</h2>
-          <button class="slider-btn prev" type="button" aria-label="Previous review">
+          <h2 data-i18n="reviews.title">Loved by Coffee Enthusiasts</h2>
+          <button class="slider-btn prev" type="button" aria-label="Previous review" data-i18n-aria="aria.prevReview">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
           </button>
           <div class="review-track">
             <article class="review-card">
               <div class="stars">★★★★★</div>
-              <p>"MODERNO is my daily ritual. Smooth, rich, and perfectly balanced."</p>
+              <p data-i18n="reviews.one">"MODERNO is my daily ritual. Smooth, rich, and perfectly balanced."</p>
               <div class="reviewer">
                 <span class="avatar avatar-one"></span>
-                <div><strong>Giulia R.</strong><small>Milan, Italy</small></div>
+                <div><strong>Giulia R.</strong><small data-i18n="reviews.cityMilan">Milan, Italy</small></div>
               </div>
             </article>
             <article class="review-card">
               <div class="stars">★★★★★</div>
-              <p>"The pods are incredibly convenient without compromising on taste."</p>
+              <p data-i18n="reviews.two">"The pods are incredibly convenient without compromising on taste."</p>
               <div class="reviewer">
                 <span class="avatar avatar-two"></span>
-                <div><strong>Marco B.</strong><small>Rome, Italy</small></div>
+                <div><strong>Marco B.</strong><small data-i18n="reviews.cityRome">Rome, Italy</small></div>
               </div>
             </article>
             <article class="review-card">
               <div class="stars">★★★★★</div>
-              <p>"Premium quality you can taste in every single cup."</p>
+              <p data-i18n="reviews.three">"Premium quality you can taste in every single cup."</p>
               <div class="reviewer">
                 <span class="avatar avatar-three"></span>
-                <div><strong>Laura P.</strong><small>Turin, Italy</small></div>
+                <div><strong>Laura P.</strong><small data-i18n="reviews.cityTurin">Turin, Italy</small></div>
               </div>
             </article>
           </div>
-          <button class="slider-btn next" type="button" aria-label="Next review">
+          <button class="slider-btn next" type="button" aria-label="Next review" data-i18n-aria="aria.nextReview">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
           </button>
         </section>
@@ -259,7 +265,7 @@
             <a href="#" class="brand light">
               <img src="assets/logo.png" alt="KENDI CAFFE" />
             </a>
-            <p>Dedicated to all Coffee Lovers</p>
+            <p data-i18n="footer.tagline">Dedicated to all Coffee Lovers</p>
             <div class="socials">
               <a href="#" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -280,11 +286,11 @@
               </a>
             </div>
           </div>
-          <div class="footer-contact" aria-label="Contact information">
-            <h2>Contact</h2>
+          <div class="footer-contact" aria-label="Contact information" data-i18n-aria="aria.contactInfo">
+            <h2 data-i18n="footer.contact">Contact</h2>
             <a href="mailto:info@kendicaffe.com">info@kendicaffe.com</a>
             <a href="tel:070666179">070 666 179</a>
-            <span class="footer-place">Macedonia <span class="heart" aria-hidden="true">&hearts;</span> Italy</span>
+            <span class="footer-place" data-i18n-html="footer.place">Macedonia <span class="heart" aria-hidden="true">&hearts;</span> Italy</span>
           </div>
         </div>
         <div class="footer-bottom">
@@ -295,50 +301,45 @@
 
     <dialog class="product-modal" id="beans-modal" aria-labelledby="beans-modal-title">
       <div class="product-modal-panel">
-        <button class="product-modal-close" type="button" data-modal-close aria-label="Close product information">
+        <button class="product-modal-close" type="button" data-modal-close aria-label="Close product information" data-i18n-aria="aria.closeProduct">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6 6 18"></path>
           </svg>
         </button>
-        <p class="eyebrow"><span></span> Product details</p>
-        <h2 id="beans-modal-title">Beans</h2>
-        <p>
+        <p class="eyebrow" data-i18n="modal.productDetails"><span></span> Product details</p>
+        <h2 id="beans-modal-title" data-i18n="modal.beansTitle">Beans</h2>
+        <p data-i18n="modal.beansText">
           Miscela Speciale Moderno is a 1 kg whole-bean blend from Vietnamese,
           Indian, Ugandan, and Brazilian coffees, crafted for consistent,
           aromatic espresso with an intense profile featuring chocolate and
           caramel notes, hints of cardamom and cinnamon, touches of forest
           fruit and white flowers, and a creamy chocolate–hazelnut finish.
         </p>
-        <strong>1 kg whole beans.</strong>
+        <strong data-i18n="modal.beansSize">1 kg whole beans.</strong>
       </div>
     </dialog>
 
     <dialog class="product-modal" id="pods-modal" aria-labelledby="pods-modal-title">
       <div class="product-modal-panel">
-        <button class="product-modal-close" type="button" data-modal-close aria-label="Close product information">
+        <button class="product-modal-close" type="button" data-modal-close aria-label="Close product information" data-i18n-aria="aria.closeProduct">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6 6 18"></path>
           </svg>
         </button>
-        <p class="eyebrow"><span></span> Product details</p>
-        <h2 id="pods-modal-title">Pods</h2>
-        <p>
-          The blend of special modern coffee is also available in convenient
-          coffee pods and capsules, perfect for a quick and high-quality coffee
-          at home or in the office. The selection of the best Vietnamese,
-          Indian, Ugandan, and Brazilian coffee beans is carefully ground and
-          packed into coffee pods and capsules, preserving the intensity and
-          aroma of the blend.
-        </p>
-        <p>
-          The coffee pods and capsules of this blend offer notes of chocolate
-          and caramel, spicy sweetness of cardamom and cinnamon, fruity and
-          floral taste of forest fruits and white flowers, and a creamy finish
-          with chocolate and hazelnut aftertaste.
+        <p class="eyebrow" data-i18n="modal.productDetails"><span></span> Product details</p>
+        <h2 id="pods-modal-title" data-i18n="modal.podsTitle">Pods</h2>
+        <p data-i18n="modal.podsText">
+          The Special Modern coffee blend is also available in convenient
+          coffee pods, delivering quick, high-quality coffee with carefully
+          selected Vietnamese, Indian, Ugandan, and Brazilian beans that
+          preserve its intensity and aroma, featuring chocolate and caramel
+          notes, hints of cardamom and cinnamon, fruity and floral touches of
+          forest fruits and white flowers, and a creamy chocolate–hazelnut
+          finish.
         </p>
       </div>
     </dialog>
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
   </body>
 </html>
