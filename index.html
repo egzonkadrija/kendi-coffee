@@ -51,7 +51,7 @@
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#products">
-                Shop Collection
+                Explore Products
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14"></path>
                   <path d="m13 6 6 6-6 6"></path>
@@ -82,11 +82,6 @@
           <article class="product-card reveal">
             <div class="card-top">
               <span class="pill red">Best Seller</span>
-              <button class="icon-btn favorite" type="button" aria-label="Add MODERNO Coffee Beans to favorites">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.8 8.6c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.8 4.8 0 0 1 12 5a4.8 4.8 0 0 1 8.8 3.6Z"></path>
-                </svg>
-              </button>
             </div>
             <div class="product-visual">
               <div class="product-frame bag-frame">
@@ -97,7 +92,7 @@
               <div>
                 <h3>MODERNO Coffee Beans</h3>
                 <p>Premium blend • Rich & Balanced</p>
-                <strong class="price">€24,90</strong>
+                <button class="product-info-btn" type="button" data-product-modal-open="beans-modal">Details</button>
               </div>
               <div class="product-buy">
                 <span>1kg</span>
@@ -108,11 +103,6 @@
           <article class="product-card reveal">
             <div class="card-top">
               <span class="pill blue">New</span>
-              <button class="icon-btn favorite" type="button" aria-label="Add MODERNO Pods to favorites">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.8 8.6c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.8 4.8 0 0 1 12 5a4.8 4.8 0 0 1 8.8 3.6Z"></path>
-                </svg>
-              </button>
             </div>
             <div class="product-visual">
               <img class="product-image pod-two" src="assets/pod2.png" alt="MODERNO coffee pods" />
@@ -121,7 +111,7 @@
               <div>
                 <h3>MODERNO Pods</h3>
                 <p>Single Serve • Smooth & Aromatic</p>
-                <strong class="price">€27,00</strong>
+                <button class="product-info-btn" type="button" data-product-modal-open="pods-modal">Details</button>
               </div>
               <div class="product-buy">
                 <span>100 pcs</span>
@@ -193,7 +183,7 @@
             <p>Modern Taste.<br />Timeless Pleasure.</p>
           </div>
           <div class="banner-cup">
-            <img src="assets/banner-cup.png" alt="Cappuccino cup with coffee beans" />
+            <img src="assets/banner-cup-kendi.png" alt="KENDI CAFFE espresso cup and saucer" />
           </div>
           <div class="banner-right">
             <p>Crafted for those<br />who appreciate<br />quality in every cup.</p>
@@ -203,21 +193,15 @@
         <section class="story" id="story">
           <div class="story-intro reveal">
             <p class="eyebrow"><span></span> Our story</p>
-            <h2>Family tradition,<br />Italian espresso craft.</h2>
+            <h2>
+              <span>Family</span>
+              <span>tradition,</span>
+              <span>Italian espresso</span>
+              <span>craft.</span>
+            </h2>
           </div>
 
           <div class="story-copy">
-            <article class="story-block reveal">
-              <h3>Family tradition</h3>
-              <p>
-                For over a decade, Kendi Caffè has been interpreting the art of
-                Italian espresso coffee through the continuous search for
-                perfection. The original mission of quality has always been
-                pursued and remains our inspiration today; from the choice of
-                the best raw materials to the careful melting and roasting
-                process.
-              </p>
-            </article>
             <article class="story-block reveal">
               <h3>Love for Italian espresso</h3>
               <p>
@@ -312,6 +296,52 @@
       </footer>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <dialog class="product-modal" id="beans-modal" aria-labelledby="beans-modal-title">
+      <div class="product-modal-panel">
+        <button class="product-modal-close" type="button" data-modal-close aria-label="Close product information">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+        <p class="eyebrow"><span></span> Product details</p>
+        <h2 id="beans-modal-title">Beans</h2>
+        <p>
+          Miscela Speciale Moderno is a 1 kg whole-bean blend from Vietnamese,
+          Indian, Ugandan, and Brazilian coffees, crafted for consistent,
+          aromatic espresso with an intense profile featuring chocolate and
+          caramel notes, hints of cardamom and cinnamon, touches of forest
+          fruit and white flowers, and a creamy chocolate–hazelnut finish.
+        </p>
+        <strong>1 kg whole beans.</strong>
+      </div>
+    </dialog>
+
+    <dialog class="product-modal" id="pods-modal" aria-labelledby="pods-modal-title">
+      <div class="product-modal-panel">
+        <button class="product-modal-close" type="button" data-modal-close aria-label="Close product information">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+        <p class="eyebrow"><span></span> Product details</p>
+        <h2 id="pods-modal-title">Pods</h2>
+        <p>
+          The blend of special modern coffee is also available in convenient
+          coffee pods and capsules, perfect for a quick and high-quality coffee
+          at home or in the office. The selection of the best Vietnamese,
+          Indian, Ugandan, and Brazilian coffee beans is carefully ground and
+          packed into coffee pods and capsules, preserving the intensity and
+          aroma of the blend.
+        </p>
+        <p>
+          The coffee pods and capsules of this blend offer notes of chocolate
+          and caramel, spicy sweetness of cardamom and cinnamon, fruity and
+          floral taste of forest fruits and white flowers, and a creamy finish
+          with chocolate and hazelnut aftertaste.
+        </p>
+      </div>
+    </dialog>
+
+    <script src="script.js?v=6"></script>
   </body>
 </html>
